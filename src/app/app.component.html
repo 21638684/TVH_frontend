@@ -1,0 +1,10 @@
+<div class="app-container" [ngClass]="{'with-sidebar': isLoggedIn()}">
+  <app-sidebar *ngIf="isLoggedIn()" (sidebarToggled)="onSidebarToggle($event)"></app-sidebar>
+  <div class="main-content" [ngClass]="{'sidebar-collapsed': isSidebarCollapsed}">
+  
+    <app-confirmation-dialog *ngIf="dialogService.getDialogVisibility('confirmation')"></app-confirmation-dialog>
+    <app-error-dialog *ngIf="dialogService.getDialogVisibility('error')"></app-error-dialog>
+    <app-success-dialog *ngIf="dialogService.getDialogVisibility('success')"></app-success-dialog>
+    <router-outlet></router-outlet>
+  </div>
+</div>

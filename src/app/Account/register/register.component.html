@@ -1,0 +1,103 @@
+<div class="register-container">
+  <div class="register-left">
+    <div class="sso-icon">
+      <img src="" alt="TVH" style="width: 90px; height: 90px; border-radius: 50%; object-fit:fill;">
+      <span>HTV</span>
+    </div>
+    <h1>WELCOME TO TVH!</h1>
+    <p>Fill in your details to create an account</p>
+  </div>
+  <div class="register-right">
+    <h2>SIGN UP</h2>
+    <p>TO ACCESS THE PORTAL</p>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="input-group">
+        <input type="text" formControlName="name" placeholder="Name">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('name')?.hasError('required')">Name is required.</small>
+          <small *ngIf="registerForm.get('name')?.hasError('minlength')">Name must be at least 2 characters long.</small>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input type="text" formControlName="surname" placeholder="Surname">
+        <div *ngIf="registerForm.get('surname')?.invalid && registerForm.get('surname')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('surname')?.hasError('required')">Surname is required.</small>
+          <small *ngIf="registerForm.get('surname')?.hasError('minlength')">Surname must be at least 2 characters long.</small>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input type="email" formControlName="email" placeholder="Email">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('email')?.hasError('required')">Email is required.</small>
+          <small *ngIf="registerForm.get('email')?.hasError('email')">Please enter a valid email address.</small>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input type="text" formControlName="phoneNumber" placeholder="Phone Number">
+        <div *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('phoneNumber')?.hasError('required')">Phone number is required.</small>
+          <small *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')">Phone number must be 10 digits.</small>
+        </div>
+      </div>
+
+      <!-- New field for Gender -->
+      <div class="input-group">
+        <select formControlName="gender">
+          <option value="" disabled selected hidden>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div *ngIf="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('gender')?.hasError('required')">Gender is required.</small>
+        </div>
+      </div>
+
+      <div class="input-group role-container">
+        <select formControlName="role">
+          <option value="" disabled selected hidden>Role</option>
+          <option value="Admin">Admin</option>
+          <option value="User">Client</option>
+        </select>
+        <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('role')?.hasError('required')">Role is required.</small>
+        </div>
+      </div>
+
+      <div class="password-container input-group">
+        <input type="password" formControlName="password" placeholder="Password" [type]="showPassword ? 'text' : 'password'">
+        <button type="button" (click)="toggleShowPassword()" class="toggle-password">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error-message">
+          <small *ngIf="registerForm.get('password')?.hasError('required')">Password is required.</small>
+          <small *ngIf="registerForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</small>
+        </div>
+      </div>
+
+      <button type="submit" class="register-button" [disabled]="registerForm.invalid">Register</button>
+    </form>
+
+    <div class="links">
+      <a [routerLink]="['/login']">Already have an account? Login</a>
+    </div>
+  </div>
+</div>
+
+<div class="copyright">
+  <p>Copyright © 2024 4bidden. All rights reserved.</p>
+</div>
+
+
+
+
+
+
+
+  

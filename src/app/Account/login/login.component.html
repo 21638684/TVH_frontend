@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <div class="sso-icon">
+              <img src="" alt="TVH" style="width: 90px; height: 90px; border-radius: 50%; object-fit:fill;">
+              <span style="font-weight: bold;">TVH</span>
+            </div>
+            <h1>WELCOME BACK !</h1>
+            <p>Enter your Email and Password to continue</p>
+        </div>
+        <div class="login-right">
+            <h2>SIGN IN</h2>
+            <p>TO ACCESS THE PORTAL</p>
+            <!-- Updated form with Angular bindings and ngSubmit -->
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="input-group">
+                    <input type="text" formControlName="email" placeholder="Enter Your Email">
+                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+                        <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required.</small>
+                        <small *ngIf="loginForm.get('email')?.hasError('email')">Please enter a valid email address.</small>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="password" formControlName="password" placeholder="Enter Your Password">
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+                        <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
+                        <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</small>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn" [disabled]="loginForm.invalid || isLoading">Login</button>
+            </form>
+            <div class="links">
+                <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+            </div>
+            <div class="register-link">
+                <span>Do not have an account? <a [routerLink]="['/register']">Register here</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+  

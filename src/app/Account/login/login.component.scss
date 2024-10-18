@@ -1,0 +1,177 @@
+/* Light Green Theme CSS for Login Page */
+
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #81C784;
+  --background-color: #E8F5E9;
+  --text-color: #1B5E20;
+  --error-color: #C62828;
+  --input-background: #F1F8E9;
+  --input-border: #A5D6A7;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.login-left {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 40%;
+}
+
+.login-left h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.sso-icon {
+  margin-bottom: 20px;
+}
+
+.sso-icon img {
+  border: 3px solid white;
+}
+
+.sso-icon span {
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login-right {
+  padding: 40px;
+  flex: 1;
+}
+
+.login-right h2 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.login-right > p {
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
+.login-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.links {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    max-width: 100%;
+    height: 100vh;
+  }
+
+  .login-left {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-right {
+    padding: 20px;
+  }
+}
