@@ -20,11 +20,8 @@ import { DialogService } from './Dialogs/dialog.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Account/home/home.component';
-
-
-
-
-
+import { FacilityComponent } from './Facilities/facility/facility.component';
+import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +35,8 @@ import { HomeComponent } from './Account/home/home.component';
     ErrorDialogComponent,
     ConfirmationDialogComponent,
     HomeComponent,
-
-
-    
-    
+    FacilityComponent,
+    CreateFacilityComponent
   ],
   imports: [
     BrowserModule,

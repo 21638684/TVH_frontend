@@ -21,10 +21,10 @@
     </li>
 
     <!-- User Profile: Accessible only to Admins -->
-    <li *ngIf="userRole === 'Admin'">
-      <a routerLink="/profiles" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/facility" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
         <i class="fas fa-users"></i>
-        <span>User Profiles</span>
+        <span>Facilities</span>
       </a>
     </li>
 
@@ -35,13 +35,7 @@
         <span>Time Entries</span>
       </a>
     </li>
-        <!-- Profile: Accessible to everyone -->
-        <li>
-          <a routerLink="/profile" routerLinkActive="active-link" [title]="isCollapsed ? 'Profile' : ''">
-            <i class="fas fa-user-circle"></i>
-            <span>Profile</span>
-          </a>
-        </li>
+ 
 
     <!-- Tips: Accessible to everyone -->
     <li *ngIf="userRole !== 'Admin'">
@@ -51,33 +45,8 @@
       </a>
     </li>
 
-      <!-- Tips: Accessible to admin -->
-      <li *ngIf="userRole == 'Admin'">
-        <a routerLink="/admin-tip" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
-          <i class="fas fa-info-circle"></i>
-          <span>Anonymous Tips</span>
-        </a>
-      </li>
-        <li *ngIf="userRole === 'Admin'">
-          <a routerLink="/task-list" routerLinkActive="active-link" [title]="isCollapsed ? 'Tasks' : ''">
-            <i class="fas fa-chart-line"></i>
-            <span>Task List</span>
-          </a>
-        </li>
+ 
 
-        <li >
-          <a routerLink="/form-creator" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
-            <i class="fas fa-info-circle"></i>
-            <span>Create Form</span>
-          </a>
-        </li>
-    
-        <li >
-          <a routerLink="/form-list" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
-            <i class="fas fa-info-circle"></i>
-            <span>Polls</span>
-          </a>
-        </li>
     <!-- Logout: Accessible to everyone -->
     <li>
       <a (click)="confirmLogout()" [title]="isCollapsed ? 'Logout' : ''">

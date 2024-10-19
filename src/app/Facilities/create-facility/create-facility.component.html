@@ -1,0 +1,40 @@
+<div class="create-facility-container">
+    <h2>Create a New Facility</h2>
+    <form [formGroup]="facilityForm" (ngSubmit)="onSubmit()">
+      <label for="facilityName">Facility Name:</label>
+      <input id="facilityName" formControlName="facilityName" type="text" />
+  
+      <label for="categoryName">Category Name:</label>
+      <input id="categoryName" formControlName="categoryName" type="text" />
+  
+      <label for="location">Location:</label>
+      <input id="location" formControlName="location" type="text" />
+  
+      <label for="availabilityStatus">Availability Status:</label>
+      <input id="availabilityStatus" formControlName="availabilityStatus" type="checkbox" />
+  
+      <label for="capacity">Capacity:</label>
+      <input id="capacity" formControlName="capacity" type="number" />
+  
+      <label for="pricePerHour">Price Per Hour:</label>
+      <input id="pricePerHour" formControlName="pricePerHour" type="number" />
+  
+      <label for="pricePerDay">Price Per Day:</label>
+      <input id="pricePerDay" formControlName="pricePerDay" type="number" />
+  
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+  
+      <label for="openingHours">Opening Hours:</label>
+      <input id="openingHours" formControlName="openingHours" type="time" />
+  
+      <label for="closingHours">Closing Hours:</label>
+      <input id="closingHours" formControlName="closingHours" type="time" />
+  
+      <label for="image">Upload Image:</label>
+      <input id="image" type="file" (change)="onFileSelected($event)" />
+  
+      <button type="submit" [disabled]="!facilityForm.valid">Create Facility</button>
+    </form>
+  </div>
+  
