@@ -2,8 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+
 :root {
-    --background-color: #f4f4f4;
+    --background-color:White;
     --text-color: #333;
     --header-bg-color: #1a237e;
     --container-bg-color: #fff;
@@ -29,50 +30,8 @@
     --sidebar-hover-bg: #e0e0e0;
     --button-bg-color: #1a237e;
     --button-text-color: #ffffff;
-    
-    /* Pomodoro-specific variables */
-    --pomodoro-bg: #ffffff;
-    --pomodoro-text: #333333;
-    --pomodoro-accent: #007bff;
-    --pomodoro-secondary: #6f42c1;
-    --pomodoro-timer-bg: #f0f0f0;
 }
 
-.dark-theme {
-    --background-color: #121212;
-    --text-color: #eee;
-    --header-bg-color: #333;
-    --container-bg-color: #1e1e1e;
-    --container-shadow: rgba(255, 255, 255, 0.1);
-    --input-bg-color: #2c2c2c;
-    --input-text-color: #eee;
-    --border-color: #444;
-    --link-color: #bb86fc;
-    --link-hover-color: #3700b3;
-    --button-primary: #bb86fc;
-    --button-primary-hover: #3700b3;
-    --button-secondary: #03dac6;
-    --button-secondary-hover: #018786;
-    --accent-color: #da70d6;
-    --table-border: #444;
-    --hover-bg: #2c2c2c;
-    --always-white-text: #ffffff;
-    --sidebar-header-bg: #333;
-    --main-header-bg: #333;
-    --table-header-bg: #333;
-    --sidebar-bg-color: #1e1e1e;
-    --sidebar-text-color: #eee;
-    --sidebar-hover-bg: #2c2c2c;
-    --button-bg-color: #bb86fc;
-    --button-text-color: #121212;
-    
-    /* Pomodoro-specific variables for dark theme */
-    --pomodoro-bg: #1e1e1e;
-    --pomodoro-text: #ffffff;
-    --pomodoro-accent: #bb86fc;
-    --pomodoro-secondary: #3700b3;
-    --pomodoro-timer-bg: #333333;
-}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -254,89 +213,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* User List Styles */
-.users-list h2 {
-    color: var(--always-white-text);
-    background-color: var(--main-header-bg);
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
 
-.users-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-.users-list table th,
-.users-list table td {
-    text-align: left;
-    padding: 12px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.users-list table th {
-    background-color: var(--table-header-bg);
-    color: var(--always-white-text);
-}
-
-.users-list table tr:hover {
-    background-color: var(--hover-bg);
-}
-
-/* Chart Styles */
-.chart-container {
-    background-color: var(--container-bg-color);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px var(--container-shadow);
-}
-
-/* Pomodoro Styles */
-.pomodoro-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--pomodoro-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    width: 200px;
-    z-index: 1000;
-}
-
-.pomodoro-container.expanded {
-    width: 300px;
-}
-
-.pomodoro-header {
-    background: linear-gradient(135deg, var(--pomodoro-accent), var(--pomodoro-secondary));
-    color: var(--always-white-text);
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pomodoro-title {
-    font-size: 1rem;
-    margin: 0;
-    color: var(--always-white-text);
-}
-
-.timer-display {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--always-white-text);
-}
-
-.pomodoro-content {
-    padding: 15px;
-}
 
 .control-buttons {
     display: flex;
