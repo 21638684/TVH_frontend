@@ -23,9 +23,10 @@ import { HomeComponent } from './Account/home/home.component';
 import { FacilityComponent } from './Facilities/facility/facility.component';
 import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
 import { ClientFacilityComponent } from './Client/client-facility/client-facility.component';
-import { NavComponent } from './nav/nav.component';
 import { EventComponent } from './Client/event/event.component';
 import { ClientHomeComponent } from './Client/client-home/client-home.component';
+import { PaymentComponent } from './Client/payment/payment.component';
+
 
 
 @NgModule({
@@ -43,9 +44,9 @@ import { ClientHomeComponent } from './Client/client-home/client-home.component'
     FacilityComponent,
     CreateFacilityComponent,
     ClientFacilityComponent,
-    NavComponent,
     EventComponent,
     ClientHomeComponent,
+    PaymentComponent
    
   ],
   imports: [
