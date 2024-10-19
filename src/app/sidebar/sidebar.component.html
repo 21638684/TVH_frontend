@@ -4,20 +4,12 @@
   </div>
 
   <ul class="sidebar-menu">
-    <!-- Dashboard: Accessible only to Admins -->
-    <li *ngIf="userRole === 'User'">
-      <a routerLink="/add" routerLinkActive="active-link" [title]="isCollapsed ? 'Add Facilities' : ''">
-        <i class="fas fa-plus"></i>
-        <span>Add Facilities</span>
-      </a>
-    </li>
-    
 
     <!-- Home: Accessible only to Non_Admins -->
     <li *ngIf="userRole !== 'Admin'">
       <a routerLink="/home" routerLinkActive="active-link" [title]="isCollapsed ? 'Home' : ''">
         <i class="fas fa-home"></i>
-        <span>Home</span>
+        <span>Dashboard</span>
       </a>
     </li>
 

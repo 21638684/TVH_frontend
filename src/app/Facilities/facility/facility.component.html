@@ -9,9 +9,13 @@
     <label for="category">Filter by Category:</label>
     <select id="category" [(ngModel)]="selectedCategory" (change)="filterByCategory()">
       <option value="">All Categories</option>
-      <option value="Museum">Meseum</option>
+      <option value="Museum">Museum</option>
       <option value="Library">Library</option>
       <option value="Zoo">Zoo</option>
+      <option value="Art">Art Gallery</option>
+      <option value="Sports">Sports Facilities</option>
+
+
       <!-- Add more options as needed -->
     </select>
   

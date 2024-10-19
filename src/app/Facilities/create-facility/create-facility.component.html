@@ -1,39 +1,58 @@
 <div class="create-facility-container">
     <h2>Create a New Facility</h2>
     <form [formGroup]="facilityForm" (ngSubmit)="onSubmit()">
+      <!-- Facility Name -->
       <label for="facilityName">Facility Name:</label>
       <input id="facilityName" formControlName="facilityName" type="text" />
+    
+      <!-- Category Dropdown -->
+      <label for="category">Category:</label>
+      <select id="category" formControlName="categoryName">
+        <option value="">Select Category</option>
+        <option value="Museum">Museum</option>
+        <option value="Library">Library</option>
+        <option value="Zoo">Zoo</option>
+        <option value="Art">Art Gallery</option>
+        <option value="Sports">Sports Facilities</option>
+      </select>
   
-      <label for="categoryName">Category Name:</label>
-      <input id="categoryName" formControlName="categoryName" type="text" />
-  
+      <!-- Location -->
       <label for="location">Location:</label>
       <input id="location" formControlName="location" type="text" />
-  
+    
+      <!-- Availability Status -->
       <label for="availabilityStatus">Availability Status:</label>
       <input id="availabilityStatus" formControlName="availabilityStatus" type="checkbox" />
-  
+    
+      <!-- Capacity -->
       <label for="capacity">Capacity:</label>
       <input id="capacity" formControlName="capacity" type="number" />
-  
+    
+      <!-- Price Per Hour -->
       <label for="pricePerHour">Price Per Hour:</label>
       <input id="pricePerHour" formControlName="pricePerHour" type="number" />
-  
+    
+      <!-- Price Per Day -->
       <label for="pricePerDay">Price Per Day:</label>
       <input id="pricePerDay" formControlName="pricePerDay" type="number" />
-  
+    
+      <!-- Description -->
       <label for="description">Description:</label>
       <textarea id="description" formControlName="description"></textarea>
-  
+    
+      <!-- Opening Hours -->
       <label for="openingHours">Opening Hours:</label>
       <input id="openingHours" formControlName="openingHours" type="time" />
-  
+    
+      <!-- Closing Hours -->
       <label for="closingHours">Closing Hours:</label>
       <input id="closingHours" formControlName="closingHours" type="time" />
-  
+    
+      <!-- Image Upload -->
       <label for="image">Upload Image:</label>
       <input id="image" type="file" (change)="onFileSelected($event)" />
-  
+    
+      <!-- Submit Button -->
       <button type="submit" [disabled]="!facilityForm.valid">Create Facility</button>
     </form>
   </div>
