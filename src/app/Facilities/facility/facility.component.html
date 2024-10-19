@@ -1,41 +1,38 @@
-<div>
+<div class="facilities-container">
     <div class="add-container">
-        <button (click)="goToCreateFacility()">Add New Facility</button>
-      </div>
-      
+      <button (click)="goToCreateFacility()">Add New Facility</button>
+    </div>
+  
     <h2>Facilities</h2>
   
-    <!-- Dropdown to filter by category -->
-    <label for="category">Filter by Category:</label>
-    <select id="category" [(ngModel)]="selectedCategory" (change)="filterByCategory()">
-      <option value="">All Categories</option>
-      <option value="Museum">Museum</option>
-      <option value="Library">Library</option>
-      <option value="Zoo">Zoo</option>
-      <option value="Art">Art Gallery</option>
-      <option value="Sports">Sports Facilities</option>
-
-
-      <!-- Add more options as needed -->
-    </select>
+    <div class="filter-container">
+      <label for="category">Filter by Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory" (change)="filterByCategory()">
+        <option value="">All Categories</option>
+        <option value="Museum">Museum</option>
+        <option value="Library">Library</option>
+        <option value="Zoo">Zoo</option>
+        <option value="Art">Art Gallery</option>
+        <option value="Sports">Sports Facilities</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
   
-    <!-- Display the filtered facilities -->
-    <ul>
-      <li *ngFor="let facility of filteredFacilities">
-        <h3>{{ facility.facilityName }}</h3>
-        <p><strong>Category:</strong> {{ facility.categoryName }}</p>
-        <p><strong>Location:</strong> {{ facility.location }}</p>
-        <p><strong>Availability Status:</strong> {{ facility.availabilityStatus ? 'Available' : 'Not Available' }}</p>
-        <p><strong>Capacity:</strong> {{ facility.capacity }}</p>
-        <p><strong>Price Per Hour:</strong> {{ facility.pricePerHour | currency }}</p>
-        <p><strong>Price Per Day:</strong> {{ facility.pricePerDay | currency }}</p>
-        <p><strong>Description:</strong> {{ facility.description }}</p>
-        <p><strong>Opening Hours:</strong> {{ facility.openingHours }}</p>
-        <p><strong>Closing Hours:</strong> {{ facility.closingHours }}</p>
-        <p><strong>Images:</strong></p>
-        <img *ngIf="facility.images" [src]="'data:image/jpeg;base64,' + facility.images" alt="{{ facility.facilityName }}" width="150" height="150">
-        <hr>
+    <ul class="facilities-list">
+      <li *ngFor="let facility of filteredFacilities" class="facility-card">
+        <img *ngIf="facility.images" [src]="'data:image/jpeg;base64,' + facility.images" [alt]="facility.facilityName" class="facility-image">
+        <div class="facility-content">
+          <h3>{{ facility.facilityName }}</h3>
+          <p><strong>Category:</strong> {{ facility.categoryName }}</p>
+          <p><strong>Location:</strong> {{ facility.location }}</p>
+          <p><strong>Availability Status:</strong> {{ facility.availabilityStatus ? 'Available' : 'Not Available' }}</p>
+          <p><strong>Capacity:</strong> {{ facility.capacity }}</p>
+          <p><strong>Price Per Hour:</strong> {{ facility.pricePerHour | currency }}</p>
+          <p><strong>Price Per Day:</strong> {{ facility.pricePerDay | currency }}</p>
+          <p><strong>Description:</strong> {{ facility.description }}</p>
+          <p><strong>Opening Hours:</strong> {{ facility.openingHours }}</p>
+          <p><strong>Closing Hours:</strong> {{ facility.closingHours }}</p>
+        </div>
       </li>
     </ul>
   </div>
-  

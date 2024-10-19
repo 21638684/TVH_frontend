@@ -1,161 +1,225 @@
-/* Light Green Theme CSS for Registration Form */
-
-:root {
-  --primary-color: #4CAF50;
-  --secondary-color: #81C784;
-  --background-color: #E8F5E9;
-  --text-color: #1B5E20;
-  --error-color: #C62828;
-  --input-background: #F1F8E9;
-  --input-border: #A5D6A7;
-}
+// Variables
+$primary-color: #d99e82;
+$secondary-color: #f7e2d4;
+$background-color: #faf4ef;
+$button-color: #d67f56;
+$hover-color: #b95c42;
+$text-color: #333;
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-}
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; // Changed from center to flex-start
+   }
 
 .register-container {
-  display: flex;
-  max-width: 900px;
-  margin: 50px auto;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 20px auto; // Added top and bottom margin
+}
+
+.register-left, .register-right {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center content vertically
+    align-items: center; // Center content horizontally
+    padding: 40px;
 }
 
 .register-left {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    background-color: $primary-color;
+    color: white;
 
-.register-left h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-.register-left p {
-  font-size: 16px;
-  opacity: 0.8;
-}
+    p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        opacity: 0.8;
+        text-align: center;
+    }
 
-.sso-icon {
-  margin-bottom: 20px;
-}
+    form {
+        width: 100%;
+        max-width: 400px; // Limit form width for better readability
 
-.sso-icon img {
-  border: 3px solid white;
-}
+        .input-group {
+            margin-bottom: 20px;
 
-.sso-icon span {
-  display: block;
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: bold;
+            input, select {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+                font-size: 0.9rem;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+                }
+            }
+
+            select {
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+            }
+        }
+
+        .password-container {
+            position: relative;
+
+            .toggle-password {
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: $button-color;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: $hover-color;
+            }
+
+            &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .links {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        text-align: center;
+
+        a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .register-right {
-  padding: 40px;
-  flex: 1;
-}
+    overflow: hidden;
 
-.register-right h2 {
-  color: var(--primary-color);
-  margin-bottom: 5px;
-}
+    .register-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.register-right > p {
-  color: var(--secondary-color);
-  margin-bottom: 30px;
-}
+    .overlay-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
 
-.input-group {
-  margin-bottom: 20px;
-}
+        .sso-icon {
+            margin-bottom: 20px;
+            img {
+                background-color: white;
+            }
+            span {
+                display: block;
+                margin-top: 10px;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
 
-.input-group input,
-.input-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--input-border);
-  border-radius: 5px;
-  background-color: var(--input-background);
-  color: var(--text-color);
-}
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-.input-group input:focus,
-.input-group select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+    }
 }
 
 .error-message {
-  color: var(--error-color);
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.password-container {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.register-button {
-  width: 100%;
-  padding: 12px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.register-button:hover {
-  background-color: #45a049;
-}
-
-.register-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.links {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.links a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.links a:hover {
-  text-decoration: underline;
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
 }
 
 .copyright {
-  text-align: center;
-  margin-top: 20px;
-  color: var(--secondary-color);
-  font-size: 14px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: $text-color;
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .register-left, .register-right {
+        width: 100%;
+    }
+
+    .register-right {
+        display: none; // Hide image on mobile for better responsiveness
+    }
 }

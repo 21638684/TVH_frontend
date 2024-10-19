@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+// Define color variables
+$primary-color: #d99e82;
+$secondary-color: #f7e2d4;
+$background-color: #faf4ef;
+$button-color: #d67f56;
+$hover-color: #b95c42;
+$text-color: #333;
+
 :host {
   display: block;
   font-family: 'Poppins', sans-serif;
@@ -7,15 +15,15 @@
 
 .sidebar {
   width: 280px;
-  background: var(--sidebar-bg-color);
-  color: var(--sidebar-text-color);
+  background: $background-color;
+  color: $text-color;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   overflow-y: auto;
   z-index: 1000;
-  box-shadow: 4px 0 15px var(--container-shadow);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -41,8 +49,8 @@
         left: 100%;
         top: 50%;
         transform: translateY(-50%);
-        background: var(--container-shadow);
-        color: var(--text-color);
+        background: $secondary-color;
+        color: $text-color;
         padding: 5px 10px;
         border-radius: 4px;
         white-space: nowrap;
@@ -56,32 +64,34 @@
   margin-top: auto; 
   padding: 10px;
   text-align: center;
-}
 
-.theme-toggle button {
-  padding: 8px 12px;
-  background-color: var(--button-bg-color);
-  color: var(--button-text-color);
-  border: none;
-  cursor: pointer;
-}
+  button {
+    padding: 8px 12px;
+    background-color: $button-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 
-.theme-toggle button:hover {
-  opacity: 0.8;
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
 }
 
 .sidebar-header {
   padding: 30px 20px;
-  background: var(--header-bg-color);
+  background: $primary-color;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid $secondary-color;
 
   h3 {
     margin: 0 0 10px;
-    color: var(--text-color);
+    color: white;
     font-size: 1.4em;
     font-weight: 600;
-    text-shadow: 1px 1px 2px var(--container-shadow);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .user-info {
@@ -89,11 +99,13 @@
       margin: 5px 0;
       font-size: 1.1em;
       font-weight: 500;
+      color: white;
     }
 
     small {
       font-size: 0.9em;
       opacity: 0.8;
+      color: $secondary-color;
     }
   }
 }
@@ -109,13 +121,13 @@
       display: flex;
       align-items: center;
       padding: 15px 25px;
-      color: var(--sidebar-text-color);
+      color: $text-color;
       text-decoration: none;
       transition: all 0.3s ease;
       position: relative;
 
       &:hover, &.active-link {
-        background: var(--sidebar-hover-bg);
+        background: $secondary-color;
         transform: translateX(5px);
       }
 
@@ -124,6 +136,7 @@
         font-size: 1.2em;
         width: 20px;
         text-align: center;
+        color: $button-color;
       }
 
       span {
@@ -140,11 +153,11 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background: var(--sidebar-hover-bg);
+    background: $secondary-color;
   }
 
   i {
-    color: var(--sidebar-text-color);
+    color: $button-color;
     font-size: 1.2em;
   }
 }
@@ -159,7 +172,7 @@
 
 .profile-container {
   position: relative;
-  width: 82px;  /* Slightly larger than the image to allow the indicator to overlap */
+  width: 82px;
   height: 82px;
 }
 
@@ -168,190 +181,104 @@
   width: 80px;
   height: 80px;
   object-fit: cover;
-  border: 2px solid white;
+  border: 2px solid $secondary-color;
   position: relative;
 }
 
 .online-indicator {
   width: 12px;
   height: 12px;
-  background-color: #00ff00;  /* Bright green for online status */
+  background-color: #4CAF50;
   border-radius: 50%;
-  border: 2px solid white;  /* White border around the dot */
+  border: 2px solid $secondary-color;
   position: absolute;
-  bottom: 3px;  /* Positioned to overlap the bottom-right corner */
+  bottom: 3px;
   right: 3px;
-  z-index: 2;  /* Ensures it appears on top of the profile image */
-}
-
-.profile-container::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  bottom: 0;
-  right: 0;
-  border-radius: 50%;  /* Ensure it's circular for a smooth effect */
-  z-index: 1;  /* Keeps the background transition behind the indicator */
+  z-index: 2;
 }
 
 .chat-modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.chat-modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  width: 400px;
-  border-radius: 5px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.small-user-profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-
-  .profile-container {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-
-  .profile-image.small {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .online-indicator {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    background-color: #4CAF50;
-    border: 2px solid white;
-    border-radius: 50%;
-  }
-
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9em;
-
-    span {
-      font-weight: 500;
-    }
-  }
-}
-
-.chat-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);  // Darker background for better contrast
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
-  .chat-modal-content {
-    background-color: #fff;
-    padding: 30px;
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  // Smooth shadow
-    position: relative;
-    animation: fadeIn 0.3s ease-in-out;  // Animation for modal appearance
+.chat-modal-content {
+  background-color: $background-color;
+  margin: 15% auto;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.8em;
-      font-weight: 600;
-      color: #333;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: $text-color;
+  }
+
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    color: $text-color;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $button-color;
+    }
+  }
+
+  .user-list {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .small-user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: $secondary-color;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($secondary-color, 5%);
     }
 
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      font-size: 24px;
-      color: #aaa;
-      cursor: pointer;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #000;
-      }
+    .profile-container {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
     }
 
-    .user-list {
-      max-height: 300px;
-      overflow-y: auto;
+    .profile-image.small {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
-    .small-user-profile {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-      transition: background-color 0.3s ease;
+    .user-info {
+      flex-grow: 1;
 
-      &:hover {
-        background-color: #f1f1f1;
-      }
-
-      .profile-container {
-        position: relative;
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
-      }
-
-      .profile-image.small {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .user-info {
-        flex-grow: 1;
-
-        .username {
-          font-size: 1.1em;
-          font-weight: 500;
-          color: #333;
-        }
+      .username {
+        font-size: 1.1em;
+        font-weight: 500;
+        color: $text-color;
       }
     }
   }
@@ -373,8 +300,8 @@
   bottom: 0;
   right: 0;
   width: 300px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: $background-color;
+  border: 1px solid $secondary-color;
   z-index: 1000;
 }
 
@@ -386,25 +313,39 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-}
 
-.chat-input input {
-  flex: 1;
-  padding: 5px;
-}
+  input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid $secondary-color;
+    border-radius: 4px;
+  }
 
-.chat-input button {
-  padding: 5px 10px;
+  button {
+    padding: 5px 10px;
+    background-color: $button-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
 }
 
 .messages {
   height: 200px;
   overflow-y: auto;
   margin-bottom: 10px;
-}
 
-.messages p {
-  background-color: #f1f1f1;
-  padding: 5px;
-  margin-bottom: 5px;
+  p {
+    background-color: $secondary-color;
+    color: $text-color;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+  }
 }

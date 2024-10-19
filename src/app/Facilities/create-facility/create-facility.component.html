@@ -1,59 +1,76 @@
 <div class="create-facility-container">
-    <h2>Create a New Facility</h2>
+    <h2>Create a New Cultural Facility</h2>
     <form [formGroup]="facilityForm" (ngSubmit)="onSubmit()">
-      <!-- Facility Name -->
-      <label for="facilityName">Facility Name:</label>
-      <input id="facilityName" formControlName="facilityName" type="text" />
-    
-      <!-- Category Dropdown -->
-      <label for="category">Category:</label>
-      <select id="category" formControlName="categoryName">
-        <option value="">Select Category</option>
-        <option value="Museum">Museum</option>
-        <option value="Library">Library</option>
-        <option value="Zoo">Zoo</option>
-        <option value="Art">Art Gallery</option>
-        <option value="Sports">Sports Facilities</option>
-      </select>
+      <div class="form-columns">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="facilityName"><i class="fas fa-building"></i> Facility Name:</label>
+            <input id="facilityName" formControlName="facilityName" type="text" placeholder="Enter facility name">
+          </div>
   
-      <!-- Location -->
-      <label for="location">Location:</label>
-      <input id="location" formControlName="location" type="text" />
-    
-      <!-- Availability Status -->
-      <label for="availabilityStatus">Availability Status:</label>
-      <input id="availabilityStatus" formControlName="availabilityStatus" type="checkbox" />
-    
-      <!-- Capacity -->
-      <label for="capacity">Capacity:</label>
-      <input id="capacity" formControlName="capacity" type="number" />
-    
-      <!-- Price Per Hour -->
-      <label for="pricePerHour">Price Per Hour:</label>
-      <input id="pricePerHour" formControlName="pricePerHour" type="number" />
-    
-      <!-- Price Per Day -->
-      <label for="pricePerDay">Price Per Day:</label>
-      <input id="pricePerDay" formControlName="pricePerDay" type="number" />
-    
-      <!-- Description -->
-      <label for="description">Description:</label>
-      <textarea id="description" formControlName="description"></textarea>
-    
-      <!-- Opening Hours -->
-      <label for="openingHours">Opening Hours:</label>
-      <input id="openingHours" formControlName="openingHours" type="time" />
-    
-      <!-- Closing Hours -->
-      <label for="closingHours">Closing Hours:</label>
-      <input id="closingHours" formControlName="closingHours" type="time" />
-    
-      <!-- Image Upload -->
-      <label for="image">Upload Image:</label>
-      <input id="image" type="file" (change)="onFileSelected($event)" />
-    
-      <!-- Submit Button -->
-      <button type="submit" [disabled]="!facilityForm.valid">Create Facility</button>
+          <div class="form-group">
+            <label for="category"><i class="fas fa-tag"></i> Category:</label>
+            <select id="category" formControlName="categoryName">
+              <option value="">Select Category</option>
+              <option value="Museum">Museum</option>
+              <option value="Library">Library</option>
+              <option value="Art">Art Gallery</option>
+              <option value="Theater">Theater</option>
+              <option value="Cultural Center">Cultural Center</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+            <input id="location" formControlName="location" type="text" placeholder="Enter location">
+          </div>
+  
+          <div class="form-group checkbox">
+            <label for="availabilityStatus">
+              <input id="availabilityStatus" formControlName="availabilityStatus" type="checkbox">
+              <i class="fas fa-calendar-check"></i> Available for Booking
+            </label>
+          </div>
+  
+          <div class="form-group">
+            <label for="capacity"><i class="fas fa-users"></i> Capacity:</label>
+            <input id="capacity" formControlName="capacity" type="number" placeholder="Enter capacity">
+          </div>
+        </div>
+  
+        <div class="form-column">
+          <div class="form-group">
+            <label for="pricePerHour"><i class="fas fa-clock"></i> Price Per Hour ($):</label>
+            <input id="pricePerHour" formControlName="pricePerHour" type="number" placeholder="Enter price per hour">
+          </div>
+  
+          <div class="form-group">
+            <label for="pricePerDay"><i class="fas fa-calendar-day"></i> Price Per Day ($):</label>
+            <input id="pricePerDay" formControlName="pricePerDay" type="number" placeholder="Enter price per day">
+          </div>
+  
+          <div class="form-group">
+            <label for="openingHours"><i class="fas fa-door-open"></i> Opening Hours:</label>
+            <input id="openingHours" formControlName="openingHours" type="time">
+          </div>
+  
+          <div class="form-group">
+            <label for="closingHours"><i class="fas fa-door-closed"></i> Closing Hours:</label>
+            <input id="closingHours" formControlName="closingHours" type="time">
+          </div>
+  
+          <div class="form-group file-input-wrapper">
+            <label for="image" class="btn"><i class="fas fa-upload"></i> Upload Image</label>
+            <input id="image" type="file" (change)="onFileSelected($event)">
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group full-width">
+        <label for="description"><i class="fas fa-info-circle"></i> Description:</label>
+        <textarea id="description" formControlName="description" placeholder="Enter facility description"></textarea>
+      </div>
+  
+      <button type="submit" [disabled]="!facilityForm.valid"><i class="fas fa-plus-circle"></i> Create Facility</button>
     </form>
   </div>
-  

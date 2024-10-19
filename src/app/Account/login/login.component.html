@@ -7,18 +7,10 @@
 </head>
 <body>
     <div class="login-container">
+        <!-- Left Column: Form and Links -->
         <div class="login-left">
-            <div class="sso-icon">
-              <img src="" alt="TVH" style="width: 90px; height: 90px; border-radius: 50%; object-fit:fill;">
-              <span style="font-weight: bold;">TVH</span>
-            </div>
-            <h1>WELCOME BACK !</h1>
-            <p>Enter your Email and Password to continue</p>
-        </div>
-        <div class="login-right">
-            <h2>SIGN IN</h2>
-            <p>TO ACCESS THE PORTAL</p>
-            <!-- Updated form with Angular bindings and ngSubmit -->
+            <h2 class="signin-title">SIGN IN</h2>
+            <p class="portal-access">TO ACCESS THE PORTAL</p>
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="input-group">
                     <input type="text" formControlName="email" placeholder="Enter Your Email">
@@ -43,9 +35,15 @@
                 <span>Do not have an account? <a [routerLink]="['/register']">Register here</a></span>
             </div>
         </div>
+
+        <!-- Right Column: Login Image -->
+        <div class="login-right">
+            <img src="assets/Images/Login (2).png" alt="Login Image" class="login-image">
+        </div>
     </div>
 </body>
 </html>
+
 
 
 

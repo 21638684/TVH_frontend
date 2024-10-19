@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Account/home/home.component';
 import { FacilityComponent } from './Facilities/facility/facility.component';
 import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
+import { ClientFacilityComponent } from './Client/client-facility/client-facility.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { CreateFacilityComponent } from './Facilities/create-facility/create-fac
     HomeComponent,
     FacilityComponent,
     CreateFacilityComponent,
+    ClientFacilityComponent,
    
   ],
   imports: [

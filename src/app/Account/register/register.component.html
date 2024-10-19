@@ -1,13 +1,5 @@
 <div class="register-container">
   <div class="register-left">
-    <div class="sso-icon">
-      <img src="" alt="TVH" style="width: 90px; height: 90px; border-radius: 50%; object-fit:fill;">
-      <span>HTV</span>
-    </div>
-    <h1>WELCOME TO TVH!</h1>
-    <p>Fill in your details to create an account</p>
-  </div>
-  <div class="register-right">
     <h2>SIGN UP</h2>
     <p>TO ACCESS THE PORTAL</p>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
@@ -83,21 +75,22 @@
 
       <button type="submit" class="register-button" [disabled]="registerForm.invalid">Register</button>
     </form>
-
     <div class="links">
       <a [routerLink]="['/login']">Already have an account? Login</a>
+    </div>
+  </div>
+  <div class="register-right">
+    <img src="assets/Images/Login (2).png" alt="Register Image" class="register-image">
+    <div class="overlay-content">
+      <div class="sso-icon">
+         <span>Pre Tour ria</span>
+      </div>
+      <h1>WELCOME TO Pre Tour ria!</h1>
+      <p>Fill in your details to create an account</p>
     </div>
   </div>
 </div>
 
 <div class="copyright">
-  <p>Copyright © 2024 4bidden. All rights reserved.</p>
+  <p>Copyright © 2024 Pre Tour ria. All rights reserved.</p>
 </div>
-
-
-
-
-
-
-
-  

@@ -1,0 +1,109 @@
+// Import the color variables if they're in a separate file, or define them here
+$primary-color: #d99e82;
+$secondary-color: #f7e2d4;
+$background-color: #faf4ef;
+$button-color: #d67f56;
+$hover-color: #b95c42;
+$text-color: #333;
+
+.facilities-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: $background-color;
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+
+  h2 {
+    color: $button-color;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  .add-container {
+    margin-bottom: 20px;
+    text-align: right;
+
+    button {
+      background-color: $button-color;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  .filter-container {
+    margin-bottom: 20px;
+
+    label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid $primary-color;
+      background-color: white;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: $button-color;
+      }
+    }
+  }
+
+  .facilities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+
+    .facility-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .facility-image {
+        width: 100%;
+        height: 200px;
+        object-fit: fill;
+      }
+
+      .facility-content {
+        padding: 20px;
+
+        h3 {
+          color: $button-color;
+          margin-top: 0;
+          margin-bottom: 15px;
+        }
+
+        p {
+          margin: 10px 0;
+
+          strong {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
