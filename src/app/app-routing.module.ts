@@ -6,6 +6,9 @@ import { ForgotPasswordComponent } from './Account/forgot-password/forgot-passwo
 import { ResetPasswordComponent } from './Account/reset-password/reset-password.component';
 import { HomeComponent } from './Account/home/home.component';
 import { FacilityComponent } from './Facilities/facility/facility.component';
+import { AddComponent } from './Facilities/add/add.component';
+import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
+
 
 
 
@@ -17,6 +20,8 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'home', component: HomeComponent },
   { path: 'facility', component: FacilityComponent },
+  { path: 'create-facility', component: CreateFacilityComponent },
+  { path: 'add', component: AddComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }
 ];

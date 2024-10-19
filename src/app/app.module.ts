@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './Account/home/home.component';
 import { FacilityComponent } from './Facilities/facility/facility.component';
 import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
+import { AddComponent } from './Facilities/add/add.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CreateFacilityComponent } from './Facilities/create-facility/create-fac
     ConfirmationDialogComponent,
     HomeComponent,
     FacilityComponent,
-    CreateFacilityComponent
+    CreateFacilityComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

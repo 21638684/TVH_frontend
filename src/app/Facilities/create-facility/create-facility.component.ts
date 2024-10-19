@@ -60,7 +60,7 @@ export class CreateFacilityComponent {
       this.facilityService.createFacility(formData).subscribe(
         (response) => {
           console.log('Facility created successfully', response);
-          this.router.navigate(['/facilities']);  // Redirect to the facilities list page after creation
+          this.router.navigate(['/facility']);  // Redirect to the facilities list page after creation
         },
         (error) => {
           console.error('Error creating facility', error);

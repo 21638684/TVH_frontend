@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FacilityService } from '../facility.service';
 import { Facility } from '../../shared/facility';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-facility',
@@ -13,7 +14,7 @@ export class FacilityComponent implements OnInit {
   filteredFacilities: Facility[] = [];  // Stores the filtered list
   selectedCategory: string = '';  // Category selected by the user
 
-  constructor(private facilityService: FacilityService) { }
+  constructor(private facilityService: FacilityService,private router: Router) { }
 
   ngOnInit(): void {
     this.getAllFacilities();
@@ -40,5 +41,8 @@ export class FacilityComponent implements OnInit {
       this.filteredFacilities = this.facilities.filter(facility => 
         facility.categoryName.toLowerCase() === this.selectedCategory.toLowerCase());
     }
+  }
+  goToCreateFacility(): void {
+    this.router.navigate(['/create-facility']);  // Navigate to the create-facility route
   }
 }

@@ -5,12 +5,13 @@
 
   <ul class="sidebar-menu">
     <!-- Dashboard: Accessible only to Admins -->
-    <li *ngIf="userRole === 'Admin'">
-      <a routerLink="/dashboard" routerLinkActive="active-link" [title]="isCollapsed ? 'Dashboard' : ''">
-        <i class="fas fa-chart-line"></i>
-        <span>Dashboard</span>
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/add" routerLinkActive="active-link" [title]="isCollapsed ? 'Add Facilities' : ''">
+        <i class="fas fa-plus"></i>
+        <span>Add Facilities</span>
       </a>
     </li>
+    
 
     <!-- Home: Accessible only to Non_Admins -->
     <li *ngIf="userRole !== 'Admin'">
@@ -27,24 +28,6 @@
         <span>Facilities</span>
       </a>
     </li>
-
-    <!-- Time Entries: Accessible to everyone -->
-    <li>
-      <a routerLink="/time-entries" routerLinkActive="active-link" [title]="isCollapsed ? 'Time Entries' : ''">
-        <i class="fas fa-clock"></i>
-        <span>Time Entries</span>
-      </a>
-    </li>
- 
-
-    <!-- Tips: Accessible to everyone -->
-    <li *ngIf="userRole !== 'Admin'">
-      <a routerLink="/tips" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
-        <i class="fas fa-info-circle"></i>
-        <span>Anonymous Tips</span>
-      </a>
-    </li>
-
  
 
     <!-- Logout: Accessible to everyone -->
