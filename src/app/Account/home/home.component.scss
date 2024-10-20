@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+  margin-top: 20px;
+
+  canvas {
+    width: 100% !important;
+    height: 600px !important; /* Set a specific height for the canvas */
+    max-width: 400px; 
+    margin: 0 auto;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+}

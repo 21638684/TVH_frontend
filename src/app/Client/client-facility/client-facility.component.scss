@@ -69,7 +69,7 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #1e9f4d;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -88,3 +88,92 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
+
+  /* Overlay to darken background */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Ensure overlay is above everything */
+}
+
+/* Custom Modal Container */
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff; /* White background */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Modal shadow */
+  z-index: 1000; /* Ensure modal is above overlay */
+  border-radius: 8px;
+}
+
+/* Modal Content */
+.custom-modal-content {
+  padding: 20px;
+  background-color: #e0f7e4; /* Light green background */
+  border-radius: 8px;
+}
+
+/* Modal Header */
+.custom-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-modal-header h4 {
+  margin: 0;
+  color: #2e7d32; /* Darker green for header text */
+}
+
+/* Close Button */
+.custom-modal-header .close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #555; /* Dark gray */
+}
+
+/* Modal Body */
+.custom-modal-body {
+  margin-bottom: 20px;
+}
+
+/* Modal Footer */
+.custom-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  margin-left: 10px;
+}
+
+/* For smaller screens, ensure modal remains centered */
+@media (max-width: 768px) {
+  .custom-modal {
+    width: 90%; /* Adjust the modal width for smaller devices */
+    max-width: none;
+  }
+}

@@ -38,7 +38,9 @@
         <p><strong>Operating Hours:</strong> {{ facility.openingHours }} - {{ facility.closingHours }}</p>
         <p>{{ facility.description }}</p>
 
-        <button class="book-button" (click)="bookFacility(facility.facilityId)">Book Now</button>
+      <!-- Correct -->
+<button (click)="openBookingModal(facility)">Book Now</button>
+
       </div>
     </div>
   </div>
@@ -47,5 +49,37 @@
   <div *ngIf="filteredFacilities.length === 0" class="no-results">
     <p>No facilities match your search criteria.</p>
   </div>
+
+<!-- Custom Modal -->
+<div class="custom-modal" *ngIf="isModalOpen">
+  <div class="custom-modal-content">
+    <div class="custom-modal-header">
+      <h4>{{ selectedFacility?.facilityName }} - Booking</h4>
+      <span class="close" (click)="closeModal()">&times;</span>
+    </div>
+    <div class="custom-modal-body">
+      <form>
+        <div class="form-group">
+          <label for="bookingDate">Date</label>
+          <input id="bookingDate" type="date" class="form-control" [(ngModel)]="bookingDate" name="bookingDate" />
+        </div>
+        <div class="form-group">
+          <label for="bookingHours">Number of Hours</label>
+          <input id="bookingHours" type="number" class="form-control" [(ngModel)]="bookingHours" name="bookingHours" (change)="calculateTotalPrice()" />
+        </div>
+        <div class="form-group">
+          <label for="totalPrice">Price</label>
+          <input id="totalPrice" type="text" class="form-control" [value]="totalPrice" readonly />
+        </div>
+      </form>
+    </div>
+    <div class="custom-modal-footer">
+      <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+      <button class="btn btn-primary" (click)="bookFacility()">Confirm Booking</button>
+    </div>
+  </div>
 </div>
-  
+
+<!-- Custom Modal Overlay -->
+<div class="custom-modal-overlay" *ngIf="isModalOpen" (click)="closeModal()"></div>
+</div>

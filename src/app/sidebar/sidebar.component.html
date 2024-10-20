@@ -26,6 +26,12 @@
         <span>Client Facilities</span>
       </a>
     </li>
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/booking" routerLinkActive="active-link" [title]="isCollapsed ? 'Booking' : ''">
+        <i class="fas fa-users"></i>
+        <span>Bookings</span>
+      </a>
+    </li>
  
     <li *ngIf="userRole === 'User'">
       <a routerLink="/client-home" routerLinkActive="active-link" [title]="isCollapsed ? 'Home' : ''">

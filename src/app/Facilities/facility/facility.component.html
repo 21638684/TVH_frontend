@@ -27,8 +27,9 @@
           <p><strong>Location:</strong> {{ facility.location }}</p>
           <p><strong>Availability Status:</strong> {{ facility.availabilityStatus ? 'Available' : 'Not Available' }}</p>
           <p><strong>Capacity:</strong> {{ facility.capacity }}</p>
-          <p><strong>Price Per Hour:</strong> {{ facility.pricePerHour | currency }}</p>
-          <p><strong>Price Per Day:</strong> {{ facility.pricePerDay | currency }}</p>
+          <p><strong>Price Per Hour:</strong> {{ facility.pricePerHour | currency:'R':'symbol' }}</p>
+          <p><strong>Price Per Day:</strong> {{ facility.pricePerDay | currency:'R':'symbol' }}</p>
+          
           <p><strong>Description:</strong> {{ facility.description }}</p>
           <p><strong>Opening Hours:</strong> {{ facility.openingHours }}</p>
           <p><strong>Closing Hours:</strong> {{ facility.closingHours }}</p>
