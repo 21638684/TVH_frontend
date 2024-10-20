@@ -10,7 +10,7 @@ import { CreateFacilityComponent } from './Facilities/create-facility/create-fac
 import { EventComponent } from './Client/event/event.component';
 import { ClientHomeComponent } from './Client/client-home/client-home.component';
 import { ClientFacilityComponent } from './Client/client-facility/client-facility.component';
-import { PaymentComponent } from './Client/payment/payment.component';import { EventComponent } from './Client/event/event.component';
+import { PaymentComponent } from './Client/payment/payment.component';
 
 
 const routes: Routes = [
