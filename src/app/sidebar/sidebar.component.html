@@ -21,6 +21,13 @@
       </a>
     </li>
  
+    <!-- User Profile: Accessible only to Admins -->
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/event" routerLinkActive="active-link" [title]="isCollapsed ? 'Event' : ''">
+        <i class="fas fa-users"></i>
+        <span>Events</span>
+      </a>
+    </li>
 
     <!-- Logout: Accessible to everyone -->
     <li>
@@ -31,7 +38,7 @@
     </li>
   </ul>
   
-  
+      
 
     <!-- Toggle between Light/Dark mode -->
   
@@ -39,4 +46,6 @@
     <i class="fas" [class.fa-chevron-left]="!isCollapsed" [class.fa-chevron-right]="isCollapsed"></i>
   </div>
 </nav>
+
+
 

@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from './Account/reset-password/reset-password.
 import { HomeComponent } from './Account/home/home.component';
 import { FacilityComponent } from './Facilities/facility/facility.component';
 import { CreateFacilityComponent } from './Facilities/create-facility/create-facility.component';
+import { EventComponent } from './Client/event/event.component';
 
 
 const routes: Routes = [
@@ -14,11 +15,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'event', component: EventComponent },
   { path: 'home', component: HomeComponent },
   { path: 'facility', component: FacilityComponent },
   { path: 'create-facility', component: CreateFacilityComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/login' },
+ 
 ];
 
 @NgModule({
