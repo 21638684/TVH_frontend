@@ -1,0 +1,35 @@
+<div class="payment-container">
+    <h2>Payment for {{ bookingDetails?.FacilityName }}</h2>
+    <p>Booking Date: {{ bookingDetails?.BookingDate | date }}</p>
+    <p>Duration: {{ bookingDetails?.DurationInHours }} hour(s)</p>
+    <p>Total Price: R{{ bookingDetails?.TotalPrice }}</p>
+  
+    <form (ngSubmit)="submitPayment()">
+      <div>
+        <label for="cardNumber">Card Number:</label>
+        <input id="cardNumber" [(ngModel)]="paymentDetails.CardNumber" name="cardNumber" required />
+      </div>
+  
+      <div>
+        <label for="cardHolder">Card Holder:</label>
+        <input id="cardHolder" [(ngModel)]="paymentDetails.CardHolder" name="cardHolder" required />
+      </div>
+  
+      <div>
+        <label for="cvv">CVV:</label>
+        <input id="cvv" type="text" [(ngModel)]="paymentDetails.CVV" name="cvv" required />
+      </div>
+  
+      <div>
+        <label for="expirationDate">Expiration Date (MM/yyyy):</label>
+        <input id="expirationDate" type="text" [(ngModel)]="paymentDetails.ExpirationDate" name="expirationDate" required />
+      </div>
+  
+      <button type="submit">Submit Payment</button>
+    </form>
+  
+    <div *ngIf="paymentMessage">
+      <p>{{ paymentMessage }}</p>
+    </div>
+  </div>
+  

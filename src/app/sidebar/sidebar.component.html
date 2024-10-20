@@ -20,8 +20,19 @@
         <span>Facilities</span>
       </a>
     </li>
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/client-facility" routerLinkActive="active-link" [title]="isCollapsed ? 'User Profile' : ''">
+        <i class="fas fa-users"></i>
+        <span>Client Facilities</span>
+      </a>
+    </li>
  
-    <!-- User Profile: Accessible only to Admins -->
+    <li *ngIf="userRole === 'User'">
+      <a routerLink="/client-home" routerLinkActive="active-link" [title]="isCollapsed ? 'Home' : ''">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>    <!-- User Profile: Accessible only to Admins -->
     <li *ngIf="userRole === 'User'">
       <a routerLink="/event" routerLinkActive="active-link" [title]="isCollapsed ? 'Event' : ''">
         <i class="fas fa-users"></i>

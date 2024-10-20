@@ -1,26 +1,33 @@
-<!-- Search and Filter Options -->
-<div class="facility-filters">
-    <label for="category">Filter by Category:</label>
-    <select id="category" [(ngModel)]="selectedCategory" (change)="filterFacilities()">
-      <option value="">All Categories</option>
-      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-    </select>
-  
-    <label for="searchName">Search by Name:</label>
-    <input id="searchName" type="text" [(ngModel)]="searchName" (input)="filterFacilities()" placeholder="Enter facility name" />
-  
-    <label for="availability">Filter by Availability:</label>
-    <select id="availability" [(ngModel)]="selectedAvailability" (change)="filterFacilities()">
-      <option value="">All Statuses</option>
-      <option value="Available">Available</option>
-      <option value="Not Available">Not Available</option>
-    </select>
+<div class="container">
+  <!-- Search and Filter Options -->
+  <div class="facility-filters">
+    <div class="filter-group">
+      <label for="category">Filter by Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory" (change)="filterFacilities()">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="searchName">Search by Name:</label>
+      <input id="searchName" type="text" [(ngModel)]="searchName" (input)="filterFacilities()" placeholder="Enter facility name" />
+    </div>
+
+    <div class="filter-group">
+      <label for="availability">Filter by Availability:</label>
+      <select id="availability" [(ngModel)]="selectedAvailability" (change)="filterFacilities()">
+        <option value="">All Statuses</option>
+        <option value="Available">Available</option>
+        <option value="Not Available">Not Available</option>
+      </select>
+    </div>
   </div>
-  
+
   <!-- Facility List -->
   <div class="facility-list">
     <div *ngFor="let facility of filteredFacilities" class="facility-card">
-        <img *ngIf="facility.images" [src]="'data:image/jpeg;base64,' + facility.images" [alt]="facility.facilityName" class="facility-image">
+      <img *ngIf="facility.images" [src]="'data:image/jpeg;base64,' + facility.images" [alt]="facility.facilityName" class="facility-image">
       <div class="facility-details">
         <h2>{{ facility.facilityName }}</h2>
         <p><strong>Category:</strong> {{ facility.categoryName }}</p>
@@ -30,14 +37,15 @@
         <p><strong>Price:</strong> R{{ facility.pricePerHour }} per hour | R{{ facility.pricePerDay }} per day</p>
         <p><strong>Operating Hours:</strong> {{ facility.openingHours }} - {{ facility.closingHours }}</p>
         <p>{{ facility.description }}</p>
-  
-        <button (click)="bookFacility(facility.facilityId)">Book Now</button>
+
+        <button class="book-button" (click)="bookFacility(facility.facilityId)">Book Now</button>
       </div>
     </div>
   </div>
-  
+
   <!-- No facilities found message -->
-  <div *ngIf="filteredFacilities.length === 0">
+  <div *ngIf="filteredFacilities.length === 0" class="no-results">
     <p>No facilities match your search criteria.</p>
   </div>
+</div>
   

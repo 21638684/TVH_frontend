@@ -1,0 +1,90 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .facility-filters {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  .facility-filters label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .facility-filters select,
+  .facility-filters input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  .facility-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .facility-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .facility-card:hover {
+    transform: translateY(-5px);
+  }
+  .facility-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .facility-details {
+    padding: 20px;
+  }
+  .facility-details h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  .facility-details p {
+    margin: 10px 0;
+    color: #666;
+  }
+  .facility-details strong {
+    color: #333;
+  }
+  .book-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .book-button:hover {
+    background-color: #0056b3;
+  }
+  .no-results {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }

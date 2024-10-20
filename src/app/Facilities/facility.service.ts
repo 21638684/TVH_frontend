@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Facility } from '../shared/facility';
+import { BookingViewModel } from '../Client/client-facility/client-facility.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,11 @@ export class FacilityService {
   // Method to create a new facility
   createFacility(facilityData: FormData): Observable<any> {
     return this.http.post(`${this.baseUrl}/Create`, facilityData);
+  }
+
+  // Method to book a facility
+   // Method to book a facility (including both booking and payment details)
+   bookFacility(requestBody: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/BookFacility`, requestBody);
   }
 }

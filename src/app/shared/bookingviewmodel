@@ -1,0 +1,21 @@
+export class BookingViewModel {
+  FacilityId: number;        // Foreign Key to FacilityModel
+  FacilityName: string;      // Facility Name to display in view
+  BookingDate: Date;         // Date for booking
+  DurationInHours: number;   // Number of hours the facility is booked for
+  TotalPrice: number;        // Total price to be calculated based on hours or days
+
+  constructor(
+    facilityId: number,
+    facilityName: string,
+    bookingDate: Date,
+    durationInHours: number,
+    totalPrice: number
+  ) {
+    this.FacilityId = facilityId;
+    this.FacilityName = facilityName;
+    this.BookingDate = bookingDate;
+    this.DurationInHours = durationInHours;
+    this.TotalPrice = totalPrice;
+  }
+}
