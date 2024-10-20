@@ -9,7 +9,7 @@ export class BookingViewModel {
   FacilityName: string;      // Facility Name to display in view
   BookingDate: Date;         // Date for booking
   DurationInHours: number;   // Number of hours the facility is booked for
-  TotalPrice: number;        // Total price to be calculated based on hours or days
+  TotalPrice: number;
 
   constructor(
     facilityId: number,
@@ -37,31 +37,27 @@ export class ClientFacilityComponent implements OnInit {
   categories: string[] = [];
   selectedCategory: string = '';
   searchName: string = '';
-  selectedAvailability: string = ''; // This will be 'Available', 'Not Available', or ''
+  selectedAvailability: string = ''; // 'Available', 'Not Available', or ''
+  
+  selectedFacility: Facility | null = null;  // Selected facility for booking
+  bookingDate: Date = new Date();
+  bookingHours: number = 1;
+  totalPrice: number = 0;
+  isModalOpen: boolean = false;  // Custom modal flag
 
   constructor(private facilityService: FacilityService, private router: Router) {}
 
   ngOnInit(): void {
     // Fetch all facilities from the backend
     this.facilityService.getFacilities().subscribe((data: Facility[]) => {
-      console.log('Facilities data from backend:', data);  // Log the facilities data returned
       this.facilities = data;
       this.filteredFacilities = data;
-  
-      // Check if the facilities array has any undefined values
-      this.facilities.forEach((facility, index) => {
-        console.log(`Facility at index ${index}:`, facility);  // Log each facility in the array
-        if (!facility.facilityName) {
-          console.warn(`Facility at index ${index} has undefined facilityName.`);
-        }
-      });
-  
       this.extractCategories();
     }, error => {
-      console.error('Error fetching facilities:', error);  // Log any errors from the backend
+      console.error('Error fetching facilities:', error);  // Log any errors
     });
   }
-  
+
   // Extract unique categories for filtering
   extractCategories() {
     this.categories = [...new Set(this.facilities.map(facility => facility.categoryName))];
@@ -72,7 +68,6 @@ export class ClientFacilityComponent implements OnInit {
     this.filteredFacilities = this.facilities.filter(facility => {
       const matchesCategory = this.selectedCategory ? facility.categoryName === this.selectedCategory : true;
       const matchesName = this.searchName ? facility.facilityName.toLowerCase().includes(this.searchName.toLowerCase()) : true;
-      
       const matchesAvailability = this.selectedAvailability === 'Available' 
         ? facility.availabilityStatus === true 
         : this.selectedAvailability === 'Not Available'
@@ -83,31 +78,54 @@ export class ClientFacilityComponent implements OnInit {
     });
   }
 
-  // Method to handle booking
-// Method to handle booking
-bookFacility(facilityId: number) {
-  const selectedFacility = this.filteredFacilities.find(facility => facility.facilityId === facilityId);
-  console.log('Selected facility:', selectedFacility); // Log the selected facility
-  
-  if (selectedFacility) {
-    // Prepare booking details
-    const bookingDetails: BookingViewModel = {
-      FacilityId: selectedFacility.facilityId,
-      FacilityName: selectedFacility.facilityName,
-      BookingDate: new Date(), // Current date for booking
-      DurationInHours: 1, // Set a default duration or get user input
-      TotalPrice: selectedFacility.pricePerHour // Calculate based on duration; adjust as necessary
-    };
+  // Open custom modal for booking
+  openBookingModal(facility: Facility): void {
+    this.selectedFacility = facility;
+    this.bookingHours = 1; // Default to 1 hour booking
+    this.calculateTotalPrice(); // Calculate initial price
+    this.isModalOpen = true; // Set modal flag to true to open the modal
+  }
 
-    console.log('Booking details:', bookingDetails); // Log the booking details
+  // Close custom modal
+  closeModal(): void {
+    this.isModalOpen = false;
+    this.selectedFacility = null; // Reset selected facility
+  }
 
-    localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
-    this.router.navigate(['/payment']);
-  } else {
-    console.error('Facility not found for booking');
+  // Calculate the total price
+  calculateTotalPrice(): void {
+    if (this.selectedFacility) {
+      this.totalPrice = this.selectedFacility.pricePerHour * this.bookingHours;
+    }
+  }
+
+  // Book the facility and reduce capacity
+  bookFacility(): void {
+    if (this.selectedFacility && this.selectedFacility.capacity > 0) {
+      // Reduce facility capacity
+      this.selectedFacility.capacity -= 1;
+
+      // Prepare booking details
+      const bookingDetails: BookingViewModel = {
+        FacilityId: this.selectedFacility.facilityId,
+        FacilityName: this.selectedFacility.facilityName,
+        BookingDate: this.bookingDate,
+        DurationInHours: this.bookingHours,
+        TotalPrice: this.totalPrice
+      };
+
+      console.log('Booking details:', bookingDetails); // Log the booking details
+
+      // Store booking details and navigate to payment
+      localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+      this.closeModal(); // Close modal after booking
+      this.router.navigate(['/payment']);
+    } else {
+      console.error('Booking failed. Facility capacity is full or facility is not selected.');
+    }
   }
 }
 
-}
+
 
 

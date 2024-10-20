@@ -3,33 +3,36 @@
     <p>Booking Date: {{ bookingDetails?.BookingDate | date }}</p>
     <p>Duration: {{ bookingDetails?.DurationInHours }} hour(s)</p>
     <p>Total Price: R{{ bookingDetails?.TotalPrice }}</p>
-  
+
     <form (ngSubmit)="submitPayment()">
-      <div>
-        <label for="cardNumber">Card Number:</label>
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
         <input id="cardNumber" [(ngModel)]="paymentDetails.CardNumber" name="cardNumber" required />
       </div>
-  
-      <div>
-        <label for="cardHolder">Card Holder:</label>
+
+      <div class="form-group">
+        <label for="cardHolder">Card Holder</label>
         <input id="cardHolder" [(ngModel)]="paymentDetails.CardHolder" name="cardHolder" required />
       </div>
-  
-      <div>
-        <label for="cvv">CVV:</label>
-        <input id="cvv" type="text" [(ngModel)]="paymentDetails.CVV" name="cvv" required />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" type="text" [(ngModel)]="paymentDetails.CVV" name="cvv" required />
+        </div>
+
+        <div class="form-group">
+          <label for="expirationDate">Expiration Date (MM/yyyy)</label>
+          <input id="expirationDate" type="text" [(ngModel)]="paymentDetails.ExpirationDate" name="expirationDate" required />
+        </div>
       </div>
-  
-      <div>
-        <label for="expirationDate">Expiration Date (MM/yyyy):</label>
-        <input id="expirationDate" type="text" [(ngModel)]="paymentDetails.ExpirationDate" name="expirationDate" required />
-      </div>
-  
-      <button type="submit">Submit Payment</button>
+
+      <button class="submit-btn" type="submit">Submit Payment</button>
     </form>
-  
-    <div *ngIf="paymentMessage">
+
+    <div *ngIf="paymentMessage" class="message">
       <p>{{ paymentMessage }}</p>
     </div>
-  </div>
+</div>
+
   

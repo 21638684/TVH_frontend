@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -26,6 +27,7 @@ import { ClientFacilityComponent } from './Client/client-facility/client-facilit
 import { EventComponent } from './Client/event/event.component';
 import { ClientHomeComponent } from './Client/client-home/client-home.component';
 import { PaymentComponent } from './Client/payment/payment.component';
+import { BookingsComponent } from './Facilities/bookings/bookings.component';
 
 
 
@@ -46,7 +48,8 @@ import { PaymentComponent } from './Client/payment/payment.component';
     ClientFacilityComponent,
     EventComponent,
     ClientHomeComponent,
-    PaymentComponent
+    PaymentComponent,
+    BookingsComponent
    
   ],
   imports: [

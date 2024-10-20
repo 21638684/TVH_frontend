@@ -1,10 +1,12 @@
-// Import the color variables if they're in a separate file, or define them here
-$primary-color: #d99e82;
-$secondary-color: #f7e2d4;
-$background-color: #faf4ef;
-$button-color: #d67f56;
-$hover-color: #b95c42;
-$text-color: #333;
+// Define green color variables
+$primary-color: #2c7a4e;
+$secondary-color: #e8f5e9;
+$background-color: #f1f8e9;
+$button-color: #4caf50;
+$hover-color: #45a049;
+$text-color: #1b5e20;
+$light-green: #c8e6c9;
+$dark-green: #1b5e20;
 
 .facilities-container {
   max-width: 1200px;
@@ -15,7 +17,7 @@ $text-color: #333;
   color: $text-color;
 
   h2 {
-    color: $button-color;
+    color: $dark-green;
     text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
@@ -47,6 +49,7 @@ $text-color: #333;
     label {
       margin-right: 10px;
       font-weight: bold;
+      color: $dark-green;
     }
 
     select {
@@ -55,6 +58,7 @@ $text-color: #333;
       border: 1px solid $primary-color;
       background-color: white;
       font-size: 16px;
+      color: $text-color;
 
       &:focus {
         outline: none;
@@ -71,7 +75,7 @@ $text-color: #333;
     padding: 0;
 
     .facility-card {
-      background-color: white;
+      background-color: $secondary-color;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
@@ -91,16 +95,17 @@ $text-color: #333;
         padding: 20px;
 
         h3 {
-          color: $button-color;
+          color: $primary-color;
           margin-top: 0;
           margin-bottom: 15px;
         }
 
         p {
           margin: 10px 0;
+          color: $text-color;
 
           strong {
-            color: $primary-color;
+            color: $dark-green;
           }
         }
       }

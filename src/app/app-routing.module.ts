@@ -11,6 +11,7 @@ import { EventComponent } from './Client/event/event.component';
 import { ClientHomeComponent } from './Client/client-home/client-home.component';
 import { ClientFacilityComponent } from './Client/client-facility/client-facility.component';
 import { PaymentComponent } from './Client/payment/payment.component';
+import { BookingsComponent } from './Facilities/bookings/bookings.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'event', component: EventComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'booking', component: BookingsComponent },
   { path: 'facility', component: FacilityComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'create-facility', component: CreateFacilityComponent },

@@ -23,8 +23,16 @@ export class FacilityService {
   }
 
   // Method to book a facility
-   // Method to book a facility (including both booking and payment details)
-   bookFacility(requestBody: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/BookFacility`, requestBody);
+    bookFacility(requestBody: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/BookFacility`, requestBody);  
   }
+
+   // Method to get the most reserved facility
+   getMostReservedFacility(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/MostReserved`);
+  }
+    // Method to get all bookings
+    getAllBookings(): Observable<any> {
+      return this.http.get(`${this.baseUrl}/GetAllBookings`);
+    }
 }
