@@ -55,7 +55,7 @@ export class PaymentComponent implements OnInit {
         (response) => {
           console.log('Booking successful:', response);
           // Navigate to a booking confirmation page or show a success message
-          this.router.navigate(['/create-facility']);
+          this.router.navigate(['/client-facility']);
         },
         (error) => {
           console.error('Booking failed:', error);
