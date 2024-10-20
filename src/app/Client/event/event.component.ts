@@ -7,12 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './event.component.scss'
 })
 export class EventComponent implements OnInit{
-  eventForm!: FormGroup;  // Declare eventForm as a FormGroup
+  eventForm!: FormGroup;  
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    // Initialize the form with form controls and validation
+    
     this.eventForm = this.fb.group({
       eventName: ['', Validators.required],
       location: ['', Validators.required],
