@@ -4,18 +4,21 @@ export class BookingViewModel {
   BookingDate: Date;         // Date for booking
   DurationInHours: number;   // Number of hours the facility is booked for
   TotalPrice: number;        // Total price to be calculated based on hours or days
+  SeatsBooked: number; 
 
   constructor(
     facilityId: number,
     facilityName: string,
     bookingDate: Date,
     durationInHours: number,
-    totalPrice: number
+    totalPrice: number,
+    seatsBooked:number,
   ) {
     this.FacilityId = facilityId;
     this.FacilityName = facilityName;
     this.BookingDate = bookingDate;
     this.DurationInHours = durationInHours;
     this.TotalPrice = totalPrice;
+    this.SeatsBooked=seatsBooked;
   }
 }

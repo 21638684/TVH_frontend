@@ -6,6 +6,7 @@
         <th>Booking ID</th>
         <th>Facility Name</th>
         <th>Booking Date</th>
+        <th>Seats Booked</th>
         <th>Total Price</th>
         <th>User Name</th>
       </tr>
@@ -15,6 +16,7 @@
         <td>{{ booking.bookingId }}</td>
         <td>{{ booking.facilityName }}</td>
         <td>{{ booking.bookingDate | date: 'short' }}</td>
+        <td>{{ booking.seatsBooked }}</td>
         <td>{{ booking.totalPrice | currency: 'R' }}</td>
         <td>{{ booking.userName }}</td>
       </tr>

@@ -40,7 +40,8 @@ export class PaymentComponent implements OnInit {
           facilityName: this.bookingDetails.FacilityName,
           bookingDate: this.bookingDetails.BookingDate,
           durationInHours: this.bookingDetails.DurationInHours,
-          totalPrice: this.bookingDetails.TotalPrice
+          totalPrice: this.bookingDetails.TotalPrice,
+          seatsBooked: this.bookingDetails.SeatsBooked // Include SeatsBooked in the request
         },
         paymentDetails: {
           cardNumber: this.paymentDetails.CardNumber,
