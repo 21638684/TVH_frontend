@@ -28,7 +28,7 @@ import { EventComponent } from './Client/event/event.component';
 import { ClientHomeComponent } from './Client/client-home/client-home.component';
 import { PaymentComponent } from './Client/payment/payment.component';
 import { BookingsComponent } from './Facilities/bookings/bookings.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -59,7 +59,7 @@ import { BookingsComponent } from './Facilities/bookings/bookings.component';
     HttpClientModule,
     FormsModule,
     FullCalendarModule,
-
+    MatPaginatorModule,
     NgbModule 
   ],
   providers: [
